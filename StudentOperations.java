@@ -111,3 +111,27 @@ public class StudentOperations
         System.out.println("Student Updated Successfully!");
     }
 
+    // method to delete student
+    public void deleteStudent(long prn)
+            throws StudentNotFoundException, EmptyStudentListException
+    {
+        // throw exception if list is empty
+        if (students.isEmpty())
+        {
+            throw new EmptyStudentListException("No students to delete.");
+        }
+        // iterate through the list to find the student
+        for (int i = 0; i < students.size(); i++)
+        {
+            // if student found, remove from list
+            if (students.get(i).getPRN() == prn)
+            {
+                students.remove(i);
+                System.out.println("Student deleted successfully!");
+                return;
+            }
+        }
+        // throw exception if student not found
+        throw new StudentNotFoundException("Student with PRN " + prn + " not found.");
+    }
+}
