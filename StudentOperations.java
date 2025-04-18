@@ -28,3 +28,19 @@ public class StudentOperations
         System.out.println("Student added successfully!");
     }
 
+    // method to display students
+    public void displayStudents() throws EmptyStudentListException
+    {
+        // throw exception if list is empty
+        if (students.isEmpty())
+        {
+            throw new EmptyStudentListException("No students to display.");
+        }
+
+        // iterate and display each student's details
+        for (Student student : students)
+        {
+            student.display();
+        }
+    }
+
