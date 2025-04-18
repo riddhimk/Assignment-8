@@ -74,3 +74,21 @@ public class StudentOperations
         throw new StudentNotFoundException("Student with name " + name + " not found.");
     }
 
+    // method to search student by position
+    public Student searchByPosition(int pos)
+            throws InvalidPositionException, EmptyStudentListException
+    {
+        // throw exception if list is empty
+        if (students.isEmpty())
+        {
+            throw new EmptyStudentListException("Student list is empty.");
+        }
+        // throw exception if position is invalid
+        if (pos < 0 || pos >= students.size())
+        {
+            throw new InvalidPositionException("Position " + pos + " is invalid.");
+        }
+        // return position at which student found
+        return students.get(pos);
+    }
+
