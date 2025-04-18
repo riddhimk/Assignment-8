@@ -92,3 +92,22 @@ public class StudentOperations
         return students.get(pos);
     }
 
+    // method to update student details
+    public void updateStudent(long prn, String name, String dept, String batch, double cgpa)
+            throws StudentNotFoundException, InvalidCGPAException
+    {
+        // search student to be updated
+        Student student = searchByPRN(prn);
+        // throw exception if CGPA out of bounds
+        if (cgpa < 0.0 || cgpa > 10.0)
+        {
+            throw new InvalidCGPAException("CGPA must be between 0 and 10.");
+        }
+        // update and print details
+        student.setName(name);
+        student.setDept(dept);
+        student.setBatch(batch);
+        student.setCGPA(cgpa);
+        System.out.println("Student Updated Successfully!");
+    }
+
