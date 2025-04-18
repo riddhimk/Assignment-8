@@ -63,3 +63,15 @@ public class Student
         this.cgpa = cgpa;
     }
 
+    // method to display student details
+    public void display()
+    {
+        System.out.println("-----------------------");
+        System.out.println("Name : " + name);
+        System.out.println("PRN : " + prn);
+        System.out.println("Department : " + dept);
+        System.out.println("Batch : " + batch);
+        System.out.println("CGPA : " + cgpa);
+        System.out.println("-----------------------");
+    }
+}
